@@ -1,18 +1,18 @@
-const { watch, series, parallel } = require("gulp");
-const { root } = require("./config/path.js");
-const browserSync = require("browser-sync").create();
+import gulp from "gulp";
+import root from "./config/path.js";
+import browserSync from "browser-sync";
 
 // конфигурация
-const path = require("./config/path.js");
-const app = require("./config/app.js");
+import path from "./config/path.js";
+import app from "./config/app.js";
 
 // задачи
-const clear = require("./task/clear.js");
-const html = require("./task/html.js");
-const scss = require("./task/scss.js");
-const js = require("./task/js.js");
-const img = require("./task/img.js");
-const font = require("./task/font.js");
+import clear from "./task/clear.js";
+import html from "./task/html.js";
+import scss from "./task/scss.js";
+import js from "./task/js.js";
+import img from "./task/img.js";
+import font from "./task/font.js";
 
 // сервер
 const server = () => {
@@ -25,32 +25,32 @@ const server = () => {
 
 // наблюдение
 const watcher = () => {
-   watch(path.html.watch, html).on("all", browserSync.reload);
-   watch(path.scss.watch, scss).on("all", browserSync.reload);
-   watch(path.js.watch, js).on("all", browserSync.reload);
-   watch(path.img.watch, img).on("all", browserSync.reload);
-   watch(path.font.watch, font).on("all", browserSync.reload);
+   gulp.watch(path.html.watch, html).on("all", browserSync.reload);
+   gulp.watch(path.scss.watch, scss).on("all", browserSync.reload);
+   gulp.watch(path.js.watch, js).on("all", browserSync.reload);
+   gulp.watch(path.img.watch, img).on("all", browserSync.reload);
+   gulp.watch(path.font.watch, font).on("all", browserSync.reload);
 }
 
-const build = series(
+const build = gulp.series(
    clear,
-   parallel(html, scss, js, img, font)
+   gulp.parallel(html, scss, js, img, font)
 );
 
-const dev = series(
+const dev = gulp.series(
    build,
-   parallel(watcher, server)
+   gulp.parallel(watcher, server)
 );
 
 // задачи для отдельного вызова
-exports.html = html;
-exports.scss = scss;
-exports.js = js;
-exports.img = img;
-exports.font = font;
+export { html };
+export { scss };
+export { js };
+export { img };
+export { font };
 
 // сборка
-exports.default = app.isProd
+export default app.isProd
    ? build
    : dev
 

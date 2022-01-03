@@ -1,30 +1,28 @@
-const { src, dest } = require("gulp");
+import gulp from "gulp";
 
 // конфигурация
-const path = require("../config/path.js");
-const app = require("../config/app.js");
+import path from "../config/path.js";
+import app from "../config/app.js";
 
 // плагин
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const imagemin = require("gulp-imagemin");
-const newer = require("gulp-newer");
-const webp = require("gulp-webp");
-const gulpif = require("gulp-if");
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import imagemin from "gulp-imagemin";
+import newer from "gulp-newer";
+import webp from "gulp-webp";
+import gulpif from "gulp-if";
 
 // обработка Image
-const img = () => {
-   return src(path.img.src)
+export default () => {
+   return gulp.src(path.img.src)
       .pipe(plumber({
          errorHandler: notify.onError()
       }))
       .pipe(newer(path.img.dest))
       .pipe(webp())
-      .pipe(dest(path.img.dest))
-      .pipe(src(path.img.src))
+      .pipe(gulp.dest(path.img.dest))
+      .pipe(gulp.src(path.img.src))
       .pipe(newer(path.img.dest))
       .pipe(gulpif(app.isProd, imagemin(app.imagemin)))
-      .pipe(dest(path.img.dest));
+      .pipe(gulp.dest(path.img.dest));
 }
-
-module.exports = img;

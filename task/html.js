@@ -1,20 +1,20 @@
-const { src, dest } = require("gulp");
+import gulp from "gulp";
 
 // конфигурация
-const path = require("../config/path.js");
-const app = require("../config/app.js");
+import path from "../config/path.js";
+import app from "../config/app.js";
 
 // плагин
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const fileInclude = require("gulp-file-include");
-const htmlMin = require("gulp-htmlmin");
-const size = require("gulp-size");
-const webpHtml = require("gulp-webp-html");
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import fileInclude from "gulp-file-include";
+import htmlMin from "gulp-htmlmin";
+import size from "gulp-size";
+import webpHtml from "gulp-webp-html";
 
 // обработка HTML
-const html = () => {
-   return src(path.html.src)
+export default () => {
+   return gulp.src(path.html.src)
       .pipe(plumber({
          errorHandler: notify.onError()
       }))
@@ -23,7 +23,5 @@ const html = () => {
       .pipe(size({ title: "Before compression" }))
       .pipe(htmlMin(app.htmlMin))
       .pipe(size({ title: "After compression" }))
-      .pipe(dest(path.html.dest));
+      .pipe(gulp.dest(path.html.dest));
 }
-
-module.exports = html;

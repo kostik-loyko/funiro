@@ -1,11 +1,9 @@
-const del = require("del");
+import del from "del";
 
 // конфигурация
-const path = require("../config/path.js");
+import path from "../config/path.js";
 
 // удаление директории
-const clear = () => {
+export default () => {
    return del(path.root);
 }
-
-module.exports = clear;

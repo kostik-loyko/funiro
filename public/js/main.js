@@ -7,15 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("const sum = __webpack_require__(/*! ./module/sum.js */ \"./src/js/module/sum.js\");\r\nconsole.log(sum(2, 10));\r\nconsole.log(sum(12, 10));\n\n//# sourceURL=webpack://start/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_sum_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/sum.js */ \"./src/js/module/sum.js\");\n\r\nconsole.log((0,_module_sum_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2, 10));\r\nconsole.log((0,_module_sum_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(12, 10));\n\n//# sourceURL=webpack://start/./src/js/main.js?");
 
 /***/ }),
 
@@ -23,9 +24,9 @@ eval("const sum = __webpack_require__(/*! ./module/sum.js */ \"./src/js/module/s
 /*!******************************!*\
   !*** ./src/js/module/sum.js ***!
   \******************************/
-/***/ (function(module) {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("module.exports = (a, b) => a + b;\n\n//# sourceURL=webpack://start/./src/js/module/sum.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((a, b) => a + b);\n\n//# sourceURL=webpack://start/./src/js/module/sum.js?");
 
 /***/ })
 
@@ -54,6 +55,18 @@ eval("module.exports = (a, b) => a + b;\n\n//# sourceURL=webpack://start/./src/j
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	

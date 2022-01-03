@@ -1,25 +1,25 @@
-const { src, dest } = require("gulp");
+import gulp from "gulp";
 
 // конфигурация
-const path = require("../config/path.js");
-const app = require("../config/app.js");
+import path from "../config/path.js";
+import app from "../config/app.js";
 
 // плагин
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const concat = require("gulp-concat");
-const cssimport = require("gulp-cssimport");
-const autoprefixer = require("gulp-autoprefixer");
-const csso = require("gulp-csso");
-const rename = require("gulp-rename");
-const size = require("gulp-size");
-const groupCssMediaQueries = require("gulp-group-css-media-queries");
-const webpCss = require("gulp-webp-css");
-const { isDev } = require("../config/app.js");
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import concat from "gulp-concat";
+import cssimport from "gulp-cssimport";
+import autoprefixer from "gulp-autoprefixer";
+import csso from "gulp-csso";
+import rename from "gulp-rename";
+import size from "gulp-size";
+import groupCssMediaQueries from "gulp-group-css-media-queries";
+import webpCss from "gulp-webp-css";
+import isDev from "../config/app.js";
 
 // обработка CSS
-const css = () => {
-   return src(path.css.src, { sourcemaps: isDev })
+export default () => {
+   return gulp.src(path.css.src, { sourcemaps: isDev })
       .pipe(plumber({
          errorHandler: notify.onError()
       }))
@@ -29,11 +29,9 @@ const css = () => {
       .pipe(autoprefixer())
       .pipe(groupCssMediaQueries())
       .pipe(size({ title: "main.css" }))
-      .pipe(dest(path.css.dest, { sourcemaps: isDev }))
+      .pipe(gulp.dest(path.css.dest, { sourcemaps: isDev }))
       .pipe(rename({ suffix: ".min" }))
       .pipe(csso())
       .pipe(size({ title: "main.min.css" }))
-      .pipe(dest(path.css.dest, { sourcemaps: isDev }));
+      .pipe(gulp.dest(path.css.dest, { sourcemaps: isDev }));
 }
-
-module.exports = css;

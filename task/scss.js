@@ -1,25 +1,27 @@
-const { src, dest } = require("gulp");
+import gulp from "gulp";
 
 // конфигурация
-const path = require("../config/path.js");
-const app = require("../config/app.js");
+import path from "../config/path.js";
+import app from "../config/app.js";
 
 // плагин
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const autoprefixer = require("gulp-autoprefixer");
-const csso = require("gulp-csso");
-const rename = require("gulp-rename");
-const size = require("gulp-size");
-const groupCssMediaQueries = require("gulp-group-css-media-queries");
-const sass = require("gulp-sass")(require("sass"));
-const sassGlob = require("gulp-sass-glob");
-const webpCss = require("gulp-webp-css");
-const { isDev } = require("../config/app.js");
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import autoprefixer from "gulp-autoprefixer";
+import csso from "gulp-csso";
+import rename from "gulp-rename";
+import size from "gulp-size";
+import groupCssMediaQueries from "gulp-group-css-media-queries";
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(dartSass);
+import sassGlob from "gulp-sass-glob";
+import webpCss from "gulp-webp-css";
+import isDev from "../config/app.js";
 
 // обработка SCSS
-const scss = () => {
-   return src(path.scss.src, { sourcemaps: app.isDev })
+export default () => {
+   return gulp.src(path.scss.src, { sourcemaps: app.isDev })
       .pipe(plumber({
          errorHandler: notify.onError()
       }))
@@ -29,11 +31,9 @@ const scss = () => {
       .pipe(autoprefixer())
       .pipe(groupCssMediaQueries())
       .pipe(size({ title: "main.css" }))
-      .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
+      .pipe(gulp.dest(path.scss.dest, { sourcemaps: app.isDev }))
       .pipe(rename({ suffix: ".min" }))
       .pipe(csso())
       .pipe(size({ title: "main.min.css" }))
-      .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }));
+      .pipe(gulp.dest(path.scss.dest, { sourcemaps: app.isDev }));
 }
-
-module.exports = scss;
