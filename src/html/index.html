@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+   @@include("chunk/header.html")
+   <h1 class="title">Main!fklkA</h1>
+   <img src="img/kanon.jpg" alt="kanon" width="300px" height="300px">
+   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio adipisci excepturi facere maiores nobis ut eum
+      expedita animi veniam, omnis illo enim quis quo ullam saepe ipsam earum officiis et?</p>
+   @@loop("./chunk/news-item.html", "../../data/news.json")
+   @@include("chunk/footer.html")
+   <script src="js/main.js"></script>
+</body>
+
+</html>
