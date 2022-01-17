@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icons';
+  src:
+    url('../font/icons.ttf?xti1g') format('truetype'),
+    url('../font/icons.woff?xti1g') format('woff'),
+    url('../font/icons.svg?xti1g#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons';
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+   content: "\e900";
+ }
+ .icon-arrowleft:before {
+   content: "\e901";
+ }
+ .icon-arrowright:before {
+   content: "\e902";
+ }
+ .icon-cart:before {
+   content: "\e903";
+ }
+ .icon-heart:before {
+   content: "\e904";
+ }
+ .icon-lens:before {
+   content: "\e905";
+ }
+ .icon-phone:before {
+   content: "\e906";
+ }
+ .icon-share:before {
+   content: "\e907";
+ }
+ .icon-subtract:before {
+   content: "\e908";
+ }
+ .icon-telegram:before {
+   content: "\e909";
+ }
+ 

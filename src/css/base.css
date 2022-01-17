@@ -3,16 +3,9 @@
 }
 
 body {
-   font-size: 22px;
+   font-size: 16px;
    font-family: Arial, Helvetica, sans-serif;
    line-height: 1.5;
-}
-
-@media (max-width: 700px) {
-   body {
-      color: white;
-      background-color: black;
-   }
 }
 
 @import "block/title.css";

@@ -1,24 +1,17 @@
-$base-font-size: 22px;
+@import "block/*.scss";
+@import "./_fonts.scss";
+@import "./_iconfonts.scss";
 
-@mixin ph {
-   @media (max-width: 700px) {
-      @content;
-   }
-}
-
-* {
+html {
    box-sizing: border-box;
 }
 
-body {
-   font-size: $base-font-size;
-   font-family: Arial, Helvetica, sans-serif;
-   line-height: 1.5;
-   @include ph {
-      color: white;
-      background-color: black;
-   }
+*, *::before, *::after {
+   box-sizing: inherit;
 }
 
-
-@import "block/*.scss";
+body {
+   font-size: 16px;
+   font-family: 'Gilroy-Regular';
+   line-height: 1.6;
+}
