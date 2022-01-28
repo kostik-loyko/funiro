@@ -10,3 +10,4 @@ body {
 
 @import "block/title.css";
 @import "block/news.css";
+@import "block/normalize.css";

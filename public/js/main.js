@@ -16,17 +16,17 @@
   \************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_sum_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/sum.js */ \"./src/js/module/sum.js\");\n\r\nconsole.log((0,_module_sum_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2, 10));\r\nconsole.log((0,_module_sum_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(12, 10));\n\n//# sourceURL=webpack://start/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/header-nav.js */ \"./src/js/module/header-nav.js\");\n\r\n\r\n(0,_module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack://start/./src/js/main.js?");
 
 /***/ }),
 
-/***/ "./src/js/module/sum.js":
-/*!******************************!*\
-  !*** ./src/js/module/sum.js ***!
-  \******************************/
+/***/ "./src/js/module/header-nav.js":
+/*!*************************************!*\
+  !*** ./src/js/module/header-nav.js ***!
+  \*************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((a, b) => a + b);\n\n//# sourceURL=webpack://start/./src/js/module/sum.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (() => {\r\n\r\n   let isMobile = {\r\n      Android: () => {\r\n         return navigator.userAgent.match(/Android/i);\r\n      },\r\n      BlackBerry: () => {\r\n         return navigator.userAgent.match(/BlackBerry/i);\r\n      },\r\n      iOS: () => {\r\n         return navigator.userAgent.match(/iPhone|iPad|iPod/i);\r\n      },\r\n      Opera: () => {\r\n         return navigator.userAgent.match(/Opera Mini/i);\r\n      },\r\n      Windows: () => {\r\n         return navigator.userAgent.match(/IEMobile/i);\r\n      },\r\n      any: () => {\r\n         return (\r\n            isMobile.Android()\r\n            || isMobile.BlackBerry()\r\n            || isMobile.iOS()\r\n            || isMobile.Opera()\r\n            || isMobile.Windows()\r\n         );\r\n      }\r\n   };\r\n\r\n   window.onload = () => {\r\n      document.addEventListener(\"click\", documentActions);\r\n\r\n      function documentActions(e) {\r\n         const targetElevent = e.target;\r\n         if (window.innerWidth > 768 && isMobile.any()) {\r\n            if (targetElevent.classList.contains(\"icon-arrow\")) {\r\n               targetElevent.closest(\".nav__item\").classList.toggle(\"hover\");\r\n            }\r\n            if (!targetElevent.closest(\".nav__item\") && document.querySelectorAll(\".nav__item.hover\").length > 0) {\r\n               document.querySelectorAll(\".nav__item.hover\").forEach((item) => {\r\n                  item.classList.remove(\"hover\");\r\n               })\r\n            }\r\n         }\r\n\r\n      }\r\n   }\r\n});\r\n\n\n//# sourceURL=webpack://start/./src/js/module/header-nav.js?");
 
 /***/ })
 

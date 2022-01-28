@@ -1,0 +1,211 @@
+.header {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &__wrapper {
+         // position: fixed;
+         widows: 100%;
+         top: 0;
+         left: 0;
+         z-index: 50;
+		}
+
+      &__container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         min-height: 125px;
+		}
+
+		&__main {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         flex: 0 0 calc(494 / 1240) * 100%;
+		}
+
+		&__logo {
+         margin-right: 41px;
+		}
+
+		&__nav {
+         flex: 0 1 420px;
+		}
+
+		&__search {
+         @include mobFistBreakpoint (lg) {
+            flex: 1 1 auto;
+         }
+		}
+
+      &__action {
+		}
+   }
+.search-form {
+   max-width: 473px;
+		&__item {
+         display: flex;
+         align-items: center;
+         background-color: #fff;
+		}
+
+      &__icon {
+         display: none;
+		}
+
+		&__button {
+         @include reset-button;
+         flex: 0 0 45px;
+         height: 45px;
+         color: #333333;
+         font-size: 15px;
+		}
+
+		&__input {
+         border: none;
+         color: #616161;
+         font-size: 14px;
+         width: 100%;
+         padding: 0 20px 0 0;
+         outline: none;
+		}
+}
+.logo {
+   @include reset-link;
+   font-family: Gilroy-Bold;
+   font-size: 24px;
+   line-height: calc(29/24)*100%;
+   color: #000000;
+}
+.nav {
+
+		&__list {
+         @include mobFistBreakpoint (md) {
+            display: flex;
+            justify-content: space-evenly;
+            @include reset-list;
+            flex-wrap: wrap;
+         }
+		}
+
+		&__item {
+         position: relative;
+         // display: flex;
+         justify-content: space-between;
+         align-items: center;
+         flex-wrap: wrap;
+         margin: 0 3px;
+         padding: 5px 0;
+         @media (any-hover: hover) {
+            &:hover {
+               .nav__sub-menu {
+                  transform: translate(0px, 0px);
+                  opacity: 1;
+                  visibility: visible;
+                  pointer-events: auto;
+               }
+               .icon-arrow {
+                  transform: rotate(-180deg);
+               }
+               .nav__link,
+               .icon-arrow {
+                  color: #E89F71;
+               }
+            }
+         }
+         @include mobFistBreakpoint (md) {
+            &.hover {
+               .nav__sub-menu {
+                  transform: translate(0px, 0px);
+                  opacity: 1;
+                  visibility: visible;
+                  pointer-events: auto;
+               }
+               .icon-arrow {
+                  transform: rotate(-180deg);
+               }
+               .nav__link,
+               .icon-arrow {
+                  color: #E89F71;
+               }
+            }
+         }
+		}
+
+		&__link {
+         font-family: Gilroy-Medium;
+         font-size: 16px;
+         color: #3A3A3A;
+         @include reset-link;
+         transition: color 0.3s ease 0s;
+		}
+
+		&__sub-menu {
+         @include reset-list;
+         position: absolute;
+         background-color: #E89F71;
+         padding: 8px;
+         flex: 1 1 100%;
+         @include mobFistBreakpoint (md) {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translate(0px, 10px);
+            min-width: 200px;
+            top: 30px;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+         }
+		}
+
+      &__sub-menu_visible {
+         
+		}
+
+		&__sub-item {
+         &:not(:last-child) {
+            margin: 0 0 5px 0;
+         }
+		}
+
+		&__sub-link {
+         @include reset-link;
+         color: white;
+         line-height: 120%;
+		}
+}
+
+.icon-arrow {
+   margin: 0 0 0 8px;
+   @include reset-button;
+   transition: all 0.3s ease;
+}
+.icon-lens {
+}
+.action-header {
+   position: relative;
+   z-index: 5;
+   display: grid;
+   grid-template-columns: auto;
+   grid-auto-flow: column;
+		&__item {
+		}
+
+		&__favorit {
+		}
+}
+.icon-heart {
+}
+.cart-header {
+
+		&__cart {
+		}
+
+		&__list {
+		}
+}
+.icon-cart {
+}
