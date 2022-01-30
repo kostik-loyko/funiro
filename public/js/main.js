@@ -16,7 +16,7 @@
   \************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/header-nav.js */ \"./src/js/module/header-nav.js\");\n\r\n\r\n(0,_module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack://start/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/header-nav.js */ \"./src/js/module/header-nav.js\");\n/* harmony import */ var _module_spollers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/spollers.js */ \"./src/js/module/spollers.js\");\n\r\n\r\n\r\n(0,_module_header_nav_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_module_spollers_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://start/./src/js/main.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (() => {\r\n\r\n   let isMobile = {\r\n      Android: () => {\r\n         return navigator.userAgent.match(/Android/i);\r\n      },\r\n      BlackBerry: () => {\r\n         return navigator.userAgent.match(/BlackBerry/i);\r\n      },\r\n      iOS: () => {\r\n         return navigator.userAgent.match(/iPhone|iPad|iPod/i);\r\n      },\r\n      Opera: () => {\r\n         return navigator.userAgent.match(/Opera Mini/i);\r\n      },\r\n      Windows: () => {\r\n         return navigator.userAgent.match(/IEMobile/i);\r\n      },\r\n      any: () => {\r\n         return (\r\n            isMobile.Android()\r\n            || isMobile.BlackBerry()\r\n            || isMobile.iOS()\r\n            || isMobile.Opera()\r\n            || isMobile.Windows()\r\n         );\r\n      }\r\n   };\r\n\r\n   window.onload = () => {\r\n      document.addEventListener(\"click\", documentActions);\r\n\r\n      function documentActions(e) {\r\n         const targetElevent = e.target;\r\n         if (window.innerWidth > 768 && isMobile.any()) {\r\n            if (targetElevent.classList.contains(\"icon-arrow\")) {\r\n               targetElevent.closest(\".nav__item\").classList.toggle(\"hover\");\r\n            }\r\n            if (!targetElevent.closest(\".nav__item\") && document.querySelectorAll(\".nav__item.hover\").length > 0) {\r\n               document.querySelectorAll(\".nav__item.hover\").forEach((item) => {\r\n                  item.classList.remove(\"hover\");\r\n               })\r\n            }\r\n         }\r\n         if (targetElevent.classList.contains(\"search-form__icon\")) {\r\n            document.querySelector(\".search-form\").classList.toggle(\"active\");\r\n         } else if (!targetElevent.closest(\".search-form\") && document.querySelector(\".search-form.active\")) {\r\n            document.querySelector(\".search-form\").classList.remove(\"active\");\r\n         }\r\n      }\r\n   }\r\n});\r\n\n\n//# sourceURL=webpack://start/./src/js/module/header-nav.js?");
+
+/***/ }),
+
+/***/ "./src/js/module/spollers.js":
+/*!***********************************!*\
+  !*** ./src/js/module/spollers.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (() => {\r\n   const spollersArray = document.querySelectorAll(\"[data-spollers]\");\r\n   if (spollersArray.length > 0) {\r\n      const spollersRegular = Array.from(spollersArray).filter((item, index, self) => {\r\n         return !item.dataset.spollers.split(\",\")[0];\r\n      })\r\n      if (spollersRegular.length > 0) {\r\n         // initSpollers(spollersRegular);\r\n      }\r\n      const spollersMedia = Array.from(spollersArray).filter((item, index, self) => {\r\n         return item.dataset.spollers.split(\",\")[0];\r\n      })\r\n      console.log(spollersRegular);\r\n   }\r\n\r\n});\n\n//# sourceURL=webpack://start/./src/js/module/spollers.js?");
 
 /***/ })
 
