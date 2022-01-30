@@ -42,7 +42,11 @@ export default () => {
                })
             }
          }
-
+         if (targetElevent.classList.contains("search-form__icon")) {
+            document.querySelector(".search-form").classList.toggle("active");
+         } else if (!targetElevent.closest(".search-form") && document.querySelector(".search-form.active")) {
+            document.querySelector(".search-form").classList.remove("active");
+         }
       }
    }
 }
